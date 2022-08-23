@@ -1,0 +1,44 @@
+{
+  "outDir": "./src/types/kusama",
+  "specVersions": "https://kusama.archive.subsquid.io/graphql",
+  "typesBundle": "kusama",
+  "events": [
+    "Democracy.Proposed",
+    "Democracy.Tabled",
+    "Democracy.Started",
+    "Council.Proposed",
+    "Council.Voted",
+    "Council.Closed",
+    "Council.Approved",
+    "Council.Executed",
+    "TechnicalCommittee.Proposed",
+    "Democracy.Started",
+    "Democracy.Cancelled",
+    "Democracy.Executed",
+    "Democracy.Passed",
+    "Democracy.NotPassed",
+    "Democracy.Voted",
+    "Bounties.BountyProposed",
+    "Treasury.Proposed",
+    "Treasury.Awarded",
+    "Treasury.Rejected",
+    "Democracy.PreimageNoted",
+    "PhragmenElection.NewTerm"
+  ],
+  "calls": [
+    "Council.vote",
+    "Democracy.second",
+    "Democracy.vote",
+    "PhragmenElection.vote",
+    "Democracy.cancel_proposal",
+    "Democracy.clear_public_proposals",
+    "Council.propose",
+    "Bounties.propose_bounty",
+    "Treasury.propose_spend"
+  ],
+  "storage":  [
+    "Council.ProposalOf",
+    "Council.Members",
+    "Democracy.Preimages"
+  ]
+}

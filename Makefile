@@ -22,8 +22,10 @@ typegen-kusama:
 	@npx squid-substrate-typegen typegenKusama.json
 typegen-polkadot:
 	@npx squid-substrate-typegen typegenPolkadot.json
+typegen-khala:
+	@npx squid-substrate-typegen typegenKhala.json
 
-typegen: typegen-kusama typegen-polkadot
+typegen: typegen-kusama typegen-polkadot typegen-khala
 
 up:
 	@docker-compose up -d

@@ -13,19 +13,17 @@ serve:
 migrate:
 	@npx squid-typeorm-migration apply
 
-
 codegen:
-	@npx squid-typeorm-codegen
+	@npx --yes @subsquid/typeorm-codegen
 
-
-typegen-kusama:
-	@npx squid-substrate-typegen typegenKusama.json
-typegen-polkadot:
-	@npx squid-substrate-typegen typegenPolkadot.json
 typegen-khala:
-	@npx squid-substrate-typegen typegenKhala.json
+	@npx --yes @subsquid/substrate-typegen typegen/typegen-khala.json
+typegen-kusama:
+	@npx --yes @subsquid/substrate-typegen typegen/typegen-kusama.json
+typegen-polkadot:
+	@npx --yes @subsquid/substrate-typegen typegen/typegen-polkadot.json
 
-typegen: typegen-kusama typegen-polkadot typegen-khala
+typegen: typegen-khala typegen-kusama typegen-polkadot
 
 up:
 	@docker-compose up -d

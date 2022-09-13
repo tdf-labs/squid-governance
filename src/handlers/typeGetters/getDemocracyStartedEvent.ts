@@ -66,7 +66,7 @@ export function getDemocracyStartedEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaDemocracyStartedEvent(ctx);
 
       if (event.isV1) {

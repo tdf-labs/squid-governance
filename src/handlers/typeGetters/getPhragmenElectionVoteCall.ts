@@ -33,7 +33,7 @@ export function getPhragmenElectionVoteCall(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaPhragmenElectionVoteCall(ctx);
 
       if (event.isV14) {

@@ -39,7 +39,7 @@ export function getBountiesBountyProposedEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaBountiesProposeEvent(ctx);
 
       if (event.isV1) {

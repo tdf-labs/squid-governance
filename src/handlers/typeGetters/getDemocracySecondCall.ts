@@ -37,7 +37,7 @@ export function getDemocracySecondCall(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const call = new KhalaDemocracySecondCall(ctx);
 
       if (call.isV1) {

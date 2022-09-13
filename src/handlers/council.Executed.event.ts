@@ -44,16 +44,13 @@ export default (network: SubstrateNetwork) =>
       );
 
     if (!councilProposal) {
-      if (ctx.event.call.name !== 'council.propose') {
+      if (ctx.event.call.name.toLowerCase() !== 'council.propose') {
         throw new Error(
           'Council proposal not found and the extrinsic is not a proposal'
         );
       }
 
-      const proposalArgs = ctx.event.call.args as unknown as [
-        { value: number }
-      ];
-      console.log(proposalArgs);
+      const proposalArgs = ctx.event.call.args as unknown as {threshold: number};
 
       councilProposal = new SubstrateCouncilProposal({
         id: `${network}:${blockNumber.toString()}:${ctx.event.indexInBlock}`,
@@ -66,7 +63,7 @@ export default (network: SubstrateNetwork) =>
         status: 'proposed',
         proposalId: storage?.value?.proposalId,
         proposalHash: '0x' + Buffer.from(event.proposalHash).toString('hex'),
-        threshold: proposalArgs[0].value,
+        threshold: proposalArgs.threshold,
         ayeCount: 0,
         nayCount: 0,
         pallet: storage?.__kind,

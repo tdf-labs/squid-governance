@@ -1,4 +1,4 @@
-import { Store } from '@subsquid/typeorm-store';
+import {Store} from '@subsquid/typeorm-store';
 import {
   SubstrateDemocracyProposal,
   SubstrateDemocracyProposalStatus,
@@ -11,8 +11,8 @@ const getByProposalIndex = async (
   proposalIndex: number
 ) => {
   return store.get(SubstrateDemocracyProposal, {
-    where: { id: `${network}:${proposalIndex}` },
-    relations: { account: true },
+    where: {id: `${network}:${proposalIndex}`},
+    relations: {account: true},
   }) as unknown as SubstrateDemocracyProposal | undefined;
 };
 
@@ -22,8 +22,8 @@ const getByProposalHash = async (
   proposalHash: string
 ) => {
   return store.get(SubstrateDemocracyProposal, {
-    where: { id: `${network}:${proposalHash}` },
-    relations: { account: true },
+    where: {id: `${network}:${proposalHash}`},
+    relations: {account: true},
   }) as unknown as SubstrateDemocracyProposal | undefined;
 };
 
@@ -33,8 +33,8 @@ const getByTabledAtBlock = async (
   tabledAtBlock: bigint
 ) => {
   return store.get(SubstrateDemocracyProposal, {
-    where: { tabledAtBlock, network },
-    relations: { account: true },
+    where: {tabledAtBlock, network},
+    relations: {account: true},
   }) as unknown as SubstrateDemocracyProposal | undefined;
 };
 
@@ -43,10 +43,14 @@ const findByStatus = async (
   network: SubstrateNetwork,
   status: SubstrateDemocracyProposalStatus
 ) => {
-  return store.findBy(SubstrateDemocracyProposal, {
-    network,
-    status,
-  }) as unknown as SubstrateDemocracyProposal[];
+  return store.find(
+    SubstrateDemocracyProposal, {
+      where: {
+        network,
+        status,
+      },
+      relations: {account: true}
+    }) as unknown as SubstrateDemocracyProposal[];
 };
 
 export default {

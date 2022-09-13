@@ -112,7 +112,7 @@ export function getCouncilExecutedEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaCouncilExecutedEvent(ctx);
 
       if (event.isV1) {

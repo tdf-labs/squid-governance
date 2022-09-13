@@ -90,7 +90,7 @@ export function getDemocracyVoteCall(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaDemocracyVoteCall(ctx);
 
       if (event.isV1) {

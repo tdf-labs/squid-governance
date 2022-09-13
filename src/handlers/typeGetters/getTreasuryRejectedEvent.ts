@@ -43,7 +43,7 @@ export function getTreasuryRejectedEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaTreasuryRejectedEvent(ctx);
 
       if (event.isV1) {

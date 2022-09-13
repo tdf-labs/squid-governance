@@ -35,7 +35,7 @@ export function getDemocracyNotPassedEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaDemocracyNotPassedEvent(ctx);
 
       if (event.isV1) {

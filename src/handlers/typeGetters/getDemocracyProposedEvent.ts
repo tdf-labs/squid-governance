@@ -37,7 +37,7 @@ export function getDemocracyProposedEvent(
       }
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaDemocracyProposedEvent(ctx);
       if (event.isV1) {
         const [proposalIndex, deposit] = event.asV1;

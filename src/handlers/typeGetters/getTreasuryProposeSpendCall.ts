@@ -71,7 +71,7 @@ export function getTreasuryProposedSpendCall(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const call = new KhalaTreasuryProposedSpendCall(ctx);
 
       if (call.isV1) {

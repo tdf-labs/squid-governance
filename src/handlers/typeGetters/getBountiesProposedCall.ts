@@ -33,7 +33,7 @@ export function getBountiesProposedCall(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const call = new KhalaBountiesProposeCall(ctx);
 
       if (call.isV1) {

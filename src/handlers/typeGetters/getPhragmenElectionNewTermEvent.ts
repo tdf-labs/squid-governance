@@ -39,7 +39,7 @@ export function getPhragmenElectionNewTermEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaPhragmenElectionNewTermEvent(ctx);
 
       if (event.isV14) {

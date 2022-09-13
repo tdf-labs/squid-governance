@@ -43,7 +43,7 @@ export function getTechnicalCommitteeProposedEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaTechnicalCommitteeProposedEvent(ctx);
       if (event.isV1) {
         const [account, proposalIndex, proposalHash, threshold] = event.asV1;

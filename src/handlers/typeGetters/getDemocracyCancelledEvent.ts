@@ -35,7 +35,7 @@ export function getDemocracyCancelledEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaDemocracyCancelledEvent(ctx);
 
       if (event.isV1) {

@@ -38,7 +38,7 @@ const getType = async (
 
       break;
 
-    case SubstrateNetwork.phala:
+    case SubstrateNetwork.khala:
       storage = new KhalaDemocracyPreimagesStorage(ctx);
 
       if (!storage.isExists) {

@@ -56,6 +56,14 @@ export async function getCouncilProposalOfStorage(
         return await call.getAsV9230(proposalHash);
       }
 
+      if (call.isV9250) {
+        return await call.getAsV9250(proposalHash);
+      }
+
+      if (call.isV9271) {
+        return await call.getAsV9271(proposalHash);
+      }
+
       throw new Error('Unexpected version');
     }
 
@@ -97,10 +105,14 @@ export async function getCouncilProposalOfStorage(
         return await call.getAsV9250(proposalHash);
       }
 
+      if (call.isV9270) {
+        return await call.getAsV9270(proposalHash);
+      }
+
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const call = new KhalaCouncilProposalOfStorage(ctx);
 
       if (!call.isExists) {
@@ -133,6 +145,9 @@ export async function getCouncilProposalOfStorage(
       }
       if (call.isV1160) {
         return call.getAsV1160(proposalHash);
+      }
+      if (call.isV1170) {
+        return call.getAsV1170(proposalHash);
       }
 
       throw new Error('Unexpected version');

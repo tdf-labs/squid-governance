@@ -30,7 +30,7 @@ export function getDemocracyCancelProposalCall(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const call = new KhalaDemocracyCancelProposalCall(ctx);
 
       if (call.isV1) {

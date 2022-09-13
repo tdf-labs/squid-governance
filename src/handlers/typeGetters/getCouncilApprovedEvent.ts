@@ -37,7 +37,7 @@ export function getCouncilApprovedEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaCouncilApprovedEvent(ctx);
 
       if (event.isV1) {

@@ -37,7 +37,7 @@ export function getDemocracyPreimageNotedEvent(
       throw new Error('Unexpected version');
     }
 
-    case SubstrateNetwork.phala: {
+    case SubstrateNetwork.khala: {
       const event = new KhalaDemocracyPreimageNotedEvent(ctx);
 
       if (event.isV1) {

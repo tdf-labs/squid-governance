@@ -37,10 +37,17 @@ export default (network: SubstrateNetwork) =>
       return;
     }
 
-    const decodedPreimage = (ctx._chain as any).scaleCodec.decodeBinary(
-      ctx._chain.description.call,
-      storagePreimage.data
-    );
+    let decodedPreimage;
+
+    try {
+      decodedPreimage = (ctx._chain as any).scaleCodec.decodeBinary(
+        ctx._chain.description.call,
+        storagePreimage.data
+      );
+    } catch (e) {
+      ctx.log.error('Unable to decode preimage');
+      return;
+    }
     const section = decodedPreimage.__kind;
     const method = decodedPreimage.value.__kind;
 

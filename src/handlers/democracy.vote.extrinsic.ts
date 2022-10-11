@@ -19,8 +19,14 @@ export default (network: SubstrateNetwork) =>
   async (ctx: CallHandlerContext<Store>) => {
     const blockNumber = BigInt(ctx.block.height);
     const date = new Date(ctx.block.timestamp);
-    const accountAddress = getCallOriginAccount(ctx.call.origin, network);
-    assert(accountAddress);
+    let accountAddress;
+    try {
+        accountAddress = getCallOriginAccount(ctx.call.origin, network);
+        assert(accountAddress);
+    } catch (e) {
+        console.error(`Failed to decode ctx.call.origin ${ctx.call.origin}`);
+        return;
+    }
     const publicKey = decodeAddress(accountAddress);
     const call = getDemocracyVoteCall(ctx, network);
 

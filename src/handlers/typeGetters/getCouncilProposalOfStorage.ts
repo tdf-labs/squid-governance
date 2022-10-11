@@ -64,6 +64,10 @@ export async function getCouncilProposalOfStorage(
         return await call.getAsV9271(proposalHash);
       }
 
+      if (call.isV9291) {
+        return await call.getAsV9291(proposalHash);
+      }
+
       throw new Error('Unexpected version');
     }
 
@@ -109,6 +113,10 @@ export async function getCouncilProposalOfStorage(
         return await call.getAsV9270(proposalHash);
       }
 
+      if (call.isV9280) {
+        return await call.getAsV9280(proposalHash);
+      }
+
       throw new Error('Unexpected version');
     }
 
@@ -148,6 +156,10 @@ export async function getCouncilProposalOfStorage(
       }
       if (call.isV1170) {
         return call.getAsV1170(proposalHash);
+      }
+
+      if (call.isV1181) {
+        return call.getAsV1181(proposalHash);
       }
 
       throw new Error('Unexpected version');

@@ -22,6 +22,7 @@ export function getBountiesBountyProposedEvent(
       if (event.isV9130) {
         return event.asV9130;
       }
+
       throw new Error('Unexpected version');
     }
 
